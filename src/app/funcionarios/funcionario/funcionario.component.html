@@ -1,0 +1,40 @@
+
+<h3>{{idFuncionario ? 'Alteração' : 'Inclusão'}} de funcionário</h3>
+
+<form [formGroup]="formulario" (ngSubmit)="salvar()">
+  <div class="form-group">
+    <label class="control-label">Nome:</label>
+    <input class="form-control"
+           formControlName="nome">
+    <p class="alert alert-danger"
+       *ngIf="formulario.controls['nome'].touched && !formulario.controls['nome'].valid">
+      Campo obrigatório!
+    </p>
+  </div>
+  <div class="form-group">
+    <label class="control-label">CPF:</label>
+    <input class="form-control"
+           formControlName="cpf">
+    <p class="alert alert-danger"
+       *ngIf="formulario.controls['cpf'].touched && !formulario.controls['cpf'].valid">
+      Campo obrigatório!
+    </p>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Salário:</label>
+    <input class="form-control"
+           formControlName="salario">
+    <p class="alert alert-danger"
+       *ngIf="formulario.controls['salario'].touched && !formulario.controls['salario'].valid">
+      Campo obrigatório!
+    </p>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary"
+            [disabled]="!formulario.valid">Salvar</button>
+    <a class="btn btn-default" 
+       style="margin: 8px;"
+       [routerLink]="['/funcionarios']">Cancelar</a>
+  </div>
+</form>
+
